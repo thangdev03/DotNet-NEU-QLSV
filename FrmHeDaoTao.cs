@@ -73,7 +73,7 @@ namespace TranNhatThang_QLSV
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            String sql_sua = string.Format("UPDATE HEDAOTAO SET TENHE = '{0}', MUCHP = '{1}', SONAM = '{2}', GHICHU = '{3}'", txtTenHe.Text, txtMucHP.Text, txtSoNam.Text, txtGhiChu.Text);
+            String sql_sua = string.Format("UPDATE HEDAOTAO SET TENHE = '{0}', MUCHP = '{1}', SONAM = '{2}', GHICHU = '{3}' WHERE MAHE= '{4}'", txtTenHe.Text, txtMucHP.Text, txtSoNam.Text, txtGhiChu.Text, txtMaHe);
             kn.THUCTHI_DULIEU(sql_sua);
             LAY_DULIEU();
         }

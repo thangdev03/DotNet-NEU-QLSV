@@ -21,6 +21,7 @@ namespace TranNhatThang_QLSV
         {
             LAY_DULIEU();
             LAY_DULIEU_BANGLOP();
+            dataSinhVien.SelectionChanged += dataSinhVien_SelectionChanged;
         }
 
         KetNoiDB kn = new KetNoiDB();
@@ -41,6 +42,16 @@ namespace TranNhatThang_QLSV
             cboMaLop.ValueMember = "MALOP";
         }
 
+        public void LAY_DULIEU_GIOITINH(String maSV)
+        {
+            DataTable dta = kn.LayBang($"Select GIOITINH From SINHVIEN WHERE MASV = {maSV}");
+        }
+
+        private void dataSinhVien_SelectionChanged(object sender, EventArgs e)
+        {
+            HIENTHIDULIEU();
+        }
+
         public void HIENTHIDULIEU()
         {
             txtMaSV.DataBindings.Clear();
@@ -57,7 +68,11 @@ namespace TranNhatThang_QLSV
 
             cboMaLop.DataBindings.Clear();
             cboMaLop.DataBindings.Add("Text", dataSinhVien.DataSource, "MALOP");
-              
+
+            string gioiTinhValue = dataSinhVien.CurrentRow.Cells["GIOITINH"].Value.ToString();
+
+            optNam.Checked = (gioiTinhValue == "1") ? true : false;
+            optNu.Checked = (gioiTinhValue == "0") ? true : false;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -86,14 +101,34 @@ namespace TranNhatThang_QLSV
             String malop = cboMaLop.Text;
             Console.WriteLine("malop:" + malop);
             Console.WriteLine("ngaysinh:" + ngaysinh);
+            String optGioiTinh = optNam.Checked ? "1" : "0";
 
-            String optGioiTinh = "0";
-            if (optNam.Checked == true)
-            {
-                optGioiTinh = "1";
-            }
             String sql_chen = $"INSERT INTO SINHVIEN VALUES ('{masv}','{hoten}','{optGioiTinh}','{ngaysinh}','{noisinh}','{malop}')";
             kn.THUCTHI_DULIEU(sql_chen);
+            LAY_DULIEU();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            String sql_xoa = $"DELETE FROM SINHVIEN WHERE MASV = '{txtMaSV.Text}'";
+            kn.THUCTHI_DULIEU(sql_xoa);
+            LAY_DULIEU();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            String masv = txtMaSV.Text;
+            String hoten = txtHoTen.Text;
+            DateTime ngaysinhValue = txtNgaySinh.Value;
+            String ngaysinh = ngaysinhValue.ToString("MM-dd-yyyy");
+            String noisinh = txtNoiSinh.Text;
+            String malop = cboMaLop.Text;
+            String optGioiTinh = optNam.Checked ? "1" : "0";
+
+            String sql_sua = $"UPDATE SINHVIEN SET HOTEN = '{hoten}',GIOITINH = '{optGioiTinh}',NGAYSINH = '{ngaysinh}' ,NOISINH = '{noisinh}',MALOP = '{malop}'" +
+                $"WHERE MASV = '{masv}'";
+
+            kn.THUCTHI_DULIEU(sql_sua);
             LAY_DULIEU();
         }
     }

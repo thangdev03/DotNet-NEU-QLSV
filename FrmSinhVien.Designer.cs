@@ -56,7 +56,7 @@
             // 
             this.dataSinhVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataSinhVien.Location = new System.Drawing.Point(55, 308);
-            this.dataSinhVien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataSinhVien.Margin = new System.Windows.Forms.Padding(4);
             this.dataSinhVien.Name = "dataSinhVien";
             this.dataSinhVien.RowHeadersWidth = 51;
             this.dataSinhVien.Size = new System.Drawing.Size(775, 260);
@@ -161,6 +161,7 @@
             this.btnXoa.TabIndex = 28;
             this.btnXoa.Text = "Xóa dữ liệu";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -172,6 +173,7 @@
             this.btnSua.TabIndex = 27;
             this.btnSua.Text = "Sửa dữ liệu";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnChen
             // 
