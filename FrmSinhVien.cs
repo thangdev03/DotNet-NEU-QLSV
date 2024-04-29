@@ -99,8 +99,6 @@ namespace TranNhatThang_QLSV
             String ngaysinh = ngaysinhValue.ToString("MM-dd-yyyy");
             String noisinh = txtNoiSinh.Text;
             String malop = cboMaLop.Text;
-            Console.WriteLine("malop:" + malop);
-            Console.WriteLine("ngaysinh:" + ngaysinh);
             String optGioiTinh = optNam.Checked ? "1" : "0";
 
             String sql_chen = $"INSERT INTO SINHVIEN VALUES ('{masv}','{hoten}','{optGioiTinh}','{ngaysinh}','{noisinh}','{malop}')";
