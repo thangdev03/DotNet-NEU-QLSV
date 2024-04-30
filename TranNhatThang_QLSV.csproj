@@ -36,8 +36,11 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmBaoCaoSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaoCaoSinhVien.Designer.cs">
+      <DependentUpon>FrmBaoCaoSinhVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHeDaoTao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +109,9 @@
       <DependentUpon>rptSinhVien.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="FrmBaoCaoSinhVien.resx">
+      <DependentUpon>FrmBaoCaoSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmHeDaoTao.resx">
       <DependentUpon>FrmHeDaoTao.cs</DependentUpon>
     </EmbeddedResource>

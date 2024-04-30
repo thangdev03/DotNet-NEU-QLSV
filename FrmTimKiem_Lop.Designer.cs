@@ -40,6 +40,7 @@
             this.optTenLop = new System.Windows.Forms.RadioButton();
             this.optMaKhoa = new System.Windows.Forms.RadioButton();
             this.optMaHe = new System.Windows.Forms.RadioButton();
+            this.btnInDS = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridKetQua)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +72,7 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(662, 123);
+            this.btnThoat.Location = new System.Drawing.Point(651, 164);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(111, 44);
             this.btnThoat.TabIndex = 8;
@@ -82,7 +83,7 @@
             // btnTimKiem
             // 
             this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(662, 69);
+            this.btnTimKiem.Location = new System.Drawing.Point(651, 62);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(111, 44);
             this.btnTimKiem.TabIndex = 9;
@@ -167,12 +168,24 @@
             this.optMaHe.Text = "Mã hệ:";
             this.optMaHe.UseVisualStyleBackColor = true;
             // 
+            // btnInDS
+            // 
+            this.btnInDS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInDS.Location = new System.Drawing.Point(651, 112);
+            this.btnInDS.Name = "btnInDS";
+            this.btnInDS.Size = new System.Drawing.Size(111, 44);
+            this.btnInDS.TabIndex = 17;
+            this.btnInDS.Text = "In DS Lớp";
+            this.btnInDS.UseVisualStyleBackColor = true;
+            this.btnInDS.Click += new System.EventHandler(this.btnInDS_Click);
+            // 
             // FrmTimKiem_Lop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.btnInDS);
             this.Controls.Add(this.optMaHe);
             this.Controls.Add(this.optMaKhoa);
             this.Controls.Add(this.optTenLop);
@@ -208,5 +221,6 @@
         private System.Windows.Forms.RadioButton optTenLop;
         private System.Windows.Forms.RadioButton optMaKhoa;
         private System.Windows.Forms.RadioButton optMaHe;
+        private System.Windows.Forms.Button btnInDS;
     }
 }

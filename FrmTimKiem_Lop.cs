@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -67,6 +68,27 @@ namespace TranNhatThang_QLSV
 
             dta = kn.LayBang(sql_timkiem);
             dataGridKetQua.DataSource = dta;
+        }
+
+        private void btnInDS_Click(object sender, EventArgs e)
+        {
+            String maLop = dataGridKetQua.CurrentRow.Cells["MALOP"].Value.ToString();
+
+            //Kết xuất nguồn dữ liệu cho Report
+            String sql_command = "Select SINHVIEN.MASV, SINHVIEN.HOTEN, SINHVIEN.NGAYSINH, SINHVIEN.GIOITINH, SINHVIEN.NOISINH, LOP.MALOP, LOP.TENLOP" +
+                "\nfrom LOP inner join SINHVIEN on SINHVIEN.MALOP = LOP.MALOP" +
+               $"\nwhere LOP.MALOP = '{maLop}'";
+            DataTable dta = new DataTable();
+            dta = kn.LayBang(sql_command);
+
+            // Gán nguồn dữ liệu cho Crystal Report
+            rptSinhVien baocao = new rptSinhVien();
+            baocao.SetDataSource(dta);
+
+            // Hiển thị báo cáo
+            FrmBaoCaoSinhVien f = new FrmBaoCaoSinhVien();
+            f.crystalReportViewer1.ReportSource = baocao;
+            f.ShowDialog();
         }
     }
 }
